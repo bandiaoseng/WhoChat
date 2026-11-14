@@ -1,16 +1,25 @@
 # WhoChat
 
-Private repository for development and release management.
+Windows 本地聊天辅助软件：读取经用户选择的聊天内容，生成回复或联系建议，由用户审核并自行发送。
 
-## Setup status
+## 当前状态
 
-Repository and Git upload access are configured. This initial commit contains repository setup files only; application source and installers have not yet been imported.
+本仓库于 2026-11-14 导入经过隐私检查的源码快照。126 个业务源码文件来自本机已封存的 4f9a9541 版本；一处说明文字中的真实客户示例已匿名化，业务逻辑未改动。
 
-## Release workflow
+当前是开发源码仓库，尚未发布供同事直接安装的通用安装包。原电脑的受控启动器、额度账本、私有配置和运行数据未导入。本次源码整理不替代完整业务回归或新电脑实测。
 
-1. Import reviewed source without personal data, login sessions, credentials or logs.
-2. Build and test a candidate version.
-3. Obtain the owner's acceptance before publishing a release for colleagues.
-4. Attach the versioned installer and update notes to GitHub Releases.
+## 开发环境
 
-Preserve applicable third-party licenses and notices when importing code.
+- Windows；建议 Python 3.12（项目声明支持 3.11～3.13）。
+- 核心依赖见 pyproject.toml / requirements.txt；默认 OCR 为 RapidOCR，安装开发依赖时需包含 rapidocr 可选依赖。
+- 本地数据默认写到项目下 .whochat-data；WHOCHAT_DATA_DIR、WHOCHAT_CONFIG_DIR、WHOCHAT_DB_PATH 可分别指定路径。
+- 新电脑需要自己的账号绑定和 AI 配置。切勿复制原用户的数据库、密钥或额度配置。
+
+## 目录
+
+- whochat/：应用、界面、OCR、账号隔离、建议生成和存储逻辑。
+- pyproject.toml：Python 项目配置。
+- SOURCE_SNAPSHOT.json：本次来源版本和源码校验值。
+- UPLOAD_POLICY.md：后续上传与正式发布规则。
+
+后续安装包需补齐独立数据目录、受控启动与升级流程，并在干净电脑上验证。请勿把源码归档当作已验收的安装版。

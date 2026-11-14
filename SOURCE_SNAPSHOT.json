@@ -1,0 +1,532 @@
+{
+  "date": "2026-11-14",
+  "kind": "reviewed-source-snapshot",
+  "installer_release": false,
+  "source_files": 128,
+  "later_local_changes_not_in_snapshot": [],
+  "sanitized_files": [
+    "whochat/vision/layout_refine.py"
+  ],
+  "files": [
+    {
+      "path": "pyproject.toml",
+      "sha256": "2e382cd6ea614a58f4c15c16f0a24f2b64219014a70e512c7c9786a19d14f7ec"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "b5380cb76d5646c28f2065db0dcf8f11d0ccd1e8c52c6455ae2ba97bfa50d485"
+    },
+    {
+      "path": "whochat/__init__.py",
+      "sha256": "2515233a0cdac6c5447c9dbd6b0d54c89284f191d8cb41473d89b347ee296ae7"
+    },
+    {
+      "path": "whochat/ai/__init__.py",
+      "sha256": "6a99211c021087c99bb21738ce34183fa64134bbb4bf5bd0f6c1448eaa70fdd4"
+    },
+    {
+      "path": "whochat/ai/agronomy_grounding.py",
+      "sha256": "bbd2829973dc0437067aacf7ee1f2103d0e6291a1f459065c75d089d64ec68e4"
+    },
+    {
+      "path": "whochat/ai/current_work_authorization.py",
+      "sha256": "0dfd7a38aa8471e5a000b2c1a97aa6fe133a2c5b5f33cf1769f61b1daa923fed"
+    },
+    {
+      "path": "whochat/ai/dispatch_audit.py",
+      "sha256": "6a3fb33c36ed2e8b8357814f96a218424c212896d20db2c123e6dc93c5416ff1"
+    },
+    {
+      "path": "whochat/ai/generator.py",
+      "sha256": "36d4643876d3e2707ad74e1b6c16d6cc705d9f2c2db20b82ea13ba19df7e049e"
+    },
+    {
+      "path": "whochat/ai/memory_models.py",
+      "sha256": "3023aacb172d041a26fbeb1193314ddd01c7ca0ef285215a89d09a81aa24a163"
+    },
+    {
+      "path": "whochat/ai/memory_provider.py",
+      "sha256": "29bf2b4ce421da0a89f83ba3c11ff2db43af575d8fa107396e9cc153981de142"
+    },
+    {
+      "path": "whochat/ai/models.py",
+      "sha256": "81eebd44dc473f0b45d191690f9058141b7e594307614591757ded67b8c9e214"
+    },
+    {
+      "path": "whochat/ai/photos.py",
+      "sha256": "188286fbe6a6d51f0539bce56baf516e57dfa8782e6d513c211d922fe556b625"
+    },
+    {
+      "path": "whochat/ai/prompt.py",
+      "sha256": "eb7ce97131da3c2e3e2adb1a1acd166bb28b6ea6ee1ab77d35d1cd0de7e8b444"
+    },
+    {
+      "path": "whochat/app.py",
+      "sha256": "f9d350faa799799b7ffbf87d5ad059fb2a590d25c9c569014700ccb5900798cb"
+    },
+    {
+      "path": "whochat/capture/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/capture/policy.py",
+      "sha256": "d4f4619eab6bf10d7dd680f6eaf70a026da14c0eee3316cd61da17a325c330f4"
+    },
+    {
+      "path": "whochat/capture/screenshot.py",
+      "sha256": "49b1980a52be30484ea7cf96dfda3e1d476f156307eec64090179fa255b25eff"
+    },
+    {
+      "path": "whochat/config.py",
+      "sha256": "11efd6d69dfd232bd398a2e82052d0f8f460b7ddaf48b2b59ffc94e9d4cedd89"
+    },
+    {
+      "path": "whochat/core/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/core/current_conversation.py",
+      "sha256": "6ccdb5e1b3d6dd8c94c52c01724986dabdf809f42bf775f7a958c76d7bf91098"
+    },
+    {
+      "path": "whochat/core/knowledge_models.py",
+      "sha256": "9bc9bc5841909fb507f02f3de6a4c4be1c12bac27c6f0ea2525ae2633edb2bf1"
+    },
+    {
+      "path": "whochat/core/models.py",
+      "sha256": "e0036996d96a7813e478124826cb7362ae5a37f32af2b883c29743d1f136fee8"
+    },
+    {
+      "path": "whochat/core/paths.py",
+      "sha256": "de64b35a6ac8e7611c068fe600ede4dde172c5c1655527ebd61add307471f121"
+    },
+    {
+      "path": "whochat/core/runtime.py",
+      "sha256": "1a5437173f1da30032bcd00d5a9f6cd894249794635cb115a1defea8a5023c78"
+    },
+    {
+      "path": "whochat/diagnostics.py",
+      "sha256": "cab328b87a43bd96d76450d9d1ebce02f814a879869ab1fc03717e91dc65798d"
+    },
+    {
+      "path": "whochat/ocr/__init__.py",
+      "sha256": "3c78788ea0fb8b468bf16f215d385ccca713e31b0d6625da9c1c4e1f920e5b92"
+    },
+    {
+      "path": "whochat/ocr/detection_cache.py",
+      "sha256": "00dd5341215550cf729a1c133e88e14e70356072432ecb2248d7707f2c8289bd"
+    },
+    {
+      "path": "whochat/ocr/engine.py",
+      "sha256": "a47919e7d337cd3db83e6dcba03769d372a916445964765301c0529fdb6bc82c"
+    },
+    {
+      "path": "whochat/ocr/low_confidence.py",
+      "sha256": "cf9c6673bfadddae70c95b1fe428e56d00164ca2834836286010dec2b60f3057"
+    },
+    {
+      "path": "whochat/ocr/media_regions.py",
+      "sha256": "6b61fa1518e850dad5a9bf61b298859c31f13407903ba95e087fa632600e0271"
+    },
+    {
+      "path": "whochat/ocr/models.py",
+      "sha256": "c2f1476abef129aa0e86bd3097181fef1be7b454639ec845f4c2ee2fe2e6e2fb"
+    },
+    {
+      "path": "whochat/ocr/native_cards.py",
+      "sha256": "1fcb25ae97a0f9c95b091c50eb35a76bc7d2976ca6a81b1fbb957b9bcc8d1fc4"
+    },
+    {
+      "path": "whochat/ocr/paddle_daemon.py",
+      "sha256": "2d3d36947ee284add2d6a51b8f49d746de1b356e45fc96f4661a639f3d0eafbf"
+    },
+    {
+      "path": "whochat/ocr/paddle_worker.py",
+      "sha256": "8b6d74f2742c9e1c98d0a81196b6aa1d851a6c981312e0b219cf5146abcd1029"
+    },
+    {
+      "path": "whochat/ocr/parser.py",
+      "sha256": "0911bac1afc0684ff8bbdf9f76e8e641d68172f7c5b860b6cfb79733db3ca68a"
+    },
+    {
+      "path": "whochat/platform/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/platform/adapters.py",
+      "sha256": "b458efdd46f6548505929dabc1e83eb8d664487485d8dc097fdd8793ae201fef"
+    },
+    {
+      "path": "whochat/platform/window_follow.py",
+      "sha256": "d04acdb781b0e324fbbadde3a5e827aa07bdc97e6c72c6b0e7a811aa0172ff78"
+    },
+    {
+      "path": "whochat/platform/window_tracker.py",
+      "sha256": "f19ef1186522e8175363d7a8d936470ca786a29ac5040c45a24c2b45009a0fa5"
+    },
+    {
+      "path": "whochat/security/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/security/redaction.py",
+      "sha256": "ad6f6636a49b29290548c6278d2984d3031cffb770ea914fb8ea10f22d25cfaa"
+    },
+    {
+      "path": "whochat/security/secret_store.py",
+      "sha256": "1eb2f49fd9affa25d362b29aff0a87bca014c49f03ee19905942798c3b484c30"
+    },
+    {
+      "path": "whochat/services/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/services/account_scope.py",
+      "sha256": "a47b96ac605e87b53cf28cf03063b7b11718f260950a325a89ba3d4141d07c02"
+    },
+    {
+      "path": "whochat/services/activation_season.py",
+      "sha256": "a03da6ff1ff57f31045eaa2205bbdc85a01dc8680dca75c5c21b161fb0481881"
+    },
+    {
+      "path": "whochat/services/autocapture.py",
+      "sha256": "b4f75487fb7be304003c361cd8609de8fb5b986a6c83d9f260f830311612dcc6"
+    },
+    {
+      "path": "whochat/services/bootstrap.py",
+      "sha256": "1fe61f69ee83e5b0bb3c11cef8b31111264de6c97eba7e040ba02c304ea7d366"
+    },
+    {
+      "path": "whochat/services/communication_intent.py",
+      "sha256": "e7cba074bf75c24747cb7590ad52c81c7e091a57686ed466df8ed4619950d016"
+    },
+    {
+      "path": "whochat/services/conversation_style.py",
+      "sha256": "a12d017d93e196b3724e86afdb7c1de87d76fd638ce010f2ab77496e3f9fbe5f"
+    },
+    {
+      "path": "whochat/services/conversation_timeline.py",
+      "sha256": "9ddf480a0b78f9484dbf0594a2b25dedafda5a422f045169a1d5a67c521339ab"
+    },
+    {
+      "path": "whochat/services/crop_display.py",
+      "sha256": "bc705edcd2c2b8769a1876f32058811395e839a02c44b4b4d984337a9d055d4a"
+    },
+    {
+      "path": "whochat/services/current_identity.py",
+      "sha256": "b75defd9cebbb35583cd7b6024dc08100436c32db29b895d85bc19d50320f8c1"
+    },
+    {
+      "path": "whochat/services/customer_memory_context.py",
+      "sha256": "a9cfc52420d0c8ac1f156c5e1b197c39b4d7c914269b5c4d6ffb8371114cf249"
+    },
+    {
+      "path": "whochat/services/customer_profile_service.py",
+      "sha256": "6c684b44efa6b004f6e59468ac5658cc02385f02d18363a82cc076d57810af9c"
+    },
+    {
+      "path": "whochat/services/customer_remark_profile.py",
+      "sha256": "f16c4df700c54dc04897e320e5b85194afdca2637c1064aa9a9771a8a5dbf5e8"
+    },
+    {
+      "path": "whochat/services/environment.py",
+      "sha256": "5ee7a2b6335693759c98d09b5102fcaa5a797efbcb83280b60d3f8e9a63c1602"
+    },
+    {
+      "path": "whochat/services/fast_activation_probe.py",
+      "sha256": "5cafc086d4c0329c6159e6a171149846ce884338f1e8e733c9fb00170bd329b6"
+    },
+    {
+      "path": "whochat/services/frame_diagnostics.py",
+      "sha256": "dfcd78e62995e8be6af76f78bbf5262bd20ffee0cc7257bb9515b4341a14e247"
+    },
+    {
+      "path": "whochat/services/frozen_screenshot.py",
+      "sha256": "77bed145f1338ae6a3a4dfc08878c63fb11bcd734b8f9bc580a71bfddb8bf4e8"
+    },
+    {
+      "path": "whochat/services/generation_focus.py",
+      "sha256": "3dd1b69f7c2ab7062bd7cac663f0611ee4ef8d791204573196ee22900974355a"
+    },
+    {
+      "path": "whochat/services/governance.py",
+      "sha256": "0abb2d6128c5e9f8000acc4feae3161cbb3e5eb70ef8f79c4184aba4d5da2a6b"
+    },
+    {
+      "path": "whochat/services/historical_backfill.py",
+      "sha256": "2de881f4dbbe16f9dfe8429a70b3064d47272732ecf5f2b747de8d11c89ba09b"
+    },
+    {
+      "path": "whochat/services/historical_eligibility.py",
+      "sha256": "3f258804077adb252e1409db92b597fc303cd73135ebf4f05636f49fb42fb1ec"
+    },
+    {
+      "path": "whochat/services/historical_import.py",
+      "sha256": "1c6dad18501a24130ab08abc71f5c172d22554050ee8097b0a26e1baa7a08e01"
+    },
+    {
+      "path": "whochat/services/identity_events.py",
+      "sha256": "0bddc008733a7061d033babe3082e2d9104883b806efe4d0b0c5c8a4dc39b418"
+    },
+    {
+      "path": "whochat/services/identity_lock.py",
+      "sha256": "1fa1a853de0ed642104e88f3e37c51c40f63b197e2fa1f632817edf70dd9401e"
+    },
+    {
+      "path": "whochat/services/imported_history.py",
+      "sha256": "9af64f32c01b5501233409c5d210b5503bb354934f8e563db48b63b4e2ec7cd1"
+    },
+    {
+      "path": "whochat/services/ingestion.py",
+      "sha256": "27689675faa26dc5e4aec3d5e356d78d701593c4e89678f9bd5a4d67ef50641c"
+    },
+    {
+      "path": "whochat/services/instant_activation.py",
+      "sha256": "3f15f45cd02e1e3c1b5c0a1fd0da4349fd4628edcb10279757b091f36f432aa2"
+    },
+    {
+      "path": "whochat/services/knowledge_gap.py",
+      "sha256": "d64cf8fdf5bcb74c8d1ce0aaffb31a694288001e14fb47b4b6e0ab1ea6a4b6ac"
+    },
+    {
+      "path": "whochat/services/knowledge_import.py",
+      "sha256": "da26b45b844741f433547e854231d4d7ab2b49a3ee0d806425fa0a2f76d11810"
+    },
+    {
+      "path": "whochat/services/local_preread.py",
+      "sha256": "32eee939d77a0470146cee3b477deb9488212b6fc41c73564b052da1aeb6406a"
+    },
+    {
+      "path": "whochat/services/long_running_historical.py",
+      "sha256": "715b4e4099f8b881c01c735983ce474245179c342ea1c2f829219de76ef3028e"
+    },
+    {
+      "path": "whochat/services/manual_selection.py",
+      "sha256": "7e6e848e448f68a098a9d187a4bb476b342706421065506d202ba5c40fa60886"
+    },
+    {
+      "path": "whochat/services/manual_suggestions.py",
+      "sha256": "5679ec13ee78c894e1b7c7e8fe96d552484bc86fddb76f13dd43b94b46ca6607"
+    },
+    {
+      "path": "whochat/services/memory_canonicalization.py",
+      "sha256": "f518771fd6b2ab71bff78116ceb19b4f03f39e3b979697d34a3dfa079c7fc443"
+    },
+    {
+      "path": "whochat/services/memory_extraction.py",
+      "sha256": "f62d451d67b5af132880db83f9f255a451c5571f5762764c8f8cc7c0e914c876"
+    },
+    {
+      "path": "whochat/services/memory_reconciliation.py",
+      "sha256": "23ed169be4ff48fd48b75a04b3f0164a0712e7a9f2df68b36ce04410c030bda7"
+    },
+    {
+      "path": "whochat/services/native_account_identity.py",
+      "sha256": "8cbba6f156d5149f6487c2bc32412b0994ce3c540522c0bf18d0deb2ee93de32"
+    },
+    {
+      "path": "whochat/services/native_open_files.py",
+      "sha256": "7401a09e1e3ffa8c3a27f4931c8c03ca5325168fdd834b8b9c5ca73a325a8c74"
+    },
+    {
+      "path": "whochat/services/native_open_files_worker.py",
+      "sha256": "0716bbaf5bc4698cd67c4d24f590dcb5815ed39c289a55da30ee48db8134cba9"
+    },
+    {
+      "path": "whochat/services/native_reader_job.py",
+      "sha256": "482d4d4474c4d72e6727797f30e6ee3f0e0701f074c4a4033635704e16f4a508"
+    },
+    {
+      "path": "whochat/services/observed_history.py",
+      "sha256": "1e9f54846a3b30b7764b45e15da641382c716b389fffcf604ebe99ced13868b4"
+    },
+    {
+      "path": "whochat/services/pipeline.py",
+      "sha256": "89950cf8d811664a9de5c8bec6ac9864e90d77d548a2e71fde9db8c240da15b0"
+    },
+    {
+      "path": "whochat/services/proactive_contact.py",
+      "sha256": "f5a3834f2b6d41b1d927619024cdddf08dd84403eee37083b45260c0f51939b1"
+    },
+    {
+      "path": "whochat/services/product_knowledge_context.py",
+      "sha256": "6d82916a1c69349a2c9232afb524dd00edf007a25692987926d2e2ba02ec24b1"
+    },
+    {
+      "path": "whochat/services/provider_health.py",
+      "sha256": "33c71fd73dd07f9865a97be085565771f145d92c5153403b5c5bafa32880e294"
+    },
+    {
+      "path": "whochat/services/reply.py",
+      "sha256": "f5361ed9b8ae53ab11c3c703f8c827550e37403253479952a22b7aefeb7d5e2e"
+    },
+    {
+      "path": "whochat/services/reply_result_cache.py",
+      "sha256": "3d7271cb9b85d8f4d6665b1b72bab9994bfefe521c33e943b4265e6ced0f5587"
+    },
+    {
+      "path": "whochat/services/reply_tasks.py",
+      "sha256": "bc3dcb7e412f506181b760b0609fb13635712aad73ae7838af915baac5a16a60"
+    },
+    {
+      "path": "whochat/services/retention.py",
+      "sha256": "62af109801a4ccfdb298f7645eb64bd1ce01d193c141cf2098452b3735a89e0d"
+    },
+    {
+      "path": "whochat/services/runtime.py",
+      "sha256": "30a2262f5a7fe3bc9efa4698adb665b08cb5fd9e7d26522a5af24a3e8b318a5a"
+    },
+    {
+      "path": "whochat/services/sales_followup.py",
+      "sha256": "632bddcdf9a82c869eb8d7a2d45cd3ee49c7ac1d997ff76d7dedbc8202a3cd76"
+    },
+    {
+      "path": "whochat/services/status.py",
+      "sha256": "005164350be05795434ab3be63dc21d410ffe60297b72027d33b78b3476abade"
+    },
+    {
+      "path": "whochat/services/structured_memory.py",
+      "sha256": "f4f2f63c6c4c2689ea8c0948f50df5cdd2d307c8071ad528f9a062b5dec2e264"
+    },
+    {
+      "path": "whochat/services/tracking_advisor.py",
+      "sha256": "90aead8596d2f77158dfb15899e02c9f78a455d5bf159bfc0c5b86e405b110d3"
+    },
+    {
+      "path": "whochat/services/tracking_reasoning.py",
+      "sha256": "35b9282bb489db7b6e0c23b1a498ce70df32edf87511e31f7fbde7d4cb3bcdae"
+    },
+    {
+      "path": "whochat/services/transcript_stitcher.py",
+      "sha256": "f385a27fbaf143ac47f2bc75c533bf64b04f7d59eec310eef3a1e42d6139f26e"
+    },
+    {
+      "path": "whochat/services/ui_data_tasks.py",
+      "sha256": "9d7080306efb442563ef4351baa4a795444db366c9f6aaa1837a2741873c5baf"
+    },
+    {
+      "path": "whochat/services/verified_knowledge_import.py",
+      "sha256": "f17c96ac4c7ddc1763c529e14b70cc9dc23e4fe7f1f35ee4af147431b6e9636c"
+    },
+    {
+      "path": "whochat/services/wechat4x_history.py",
+      "sha256": "839e9166bfa7c7aac58eb35c41f4fd00ae15c92dac960d0f352c1e5d1bb0e09a"
+    },
+    {
+      "path": "whochat/services/window_reactivation_capture.py",
+      "sha256": "9cbd42a57c79b137f1b825cf836efb0941615d4766268650f98d728cb61203ab"
+    },
+    {
+      "path": "whochat/services/writing_feedback.py",
+      "sha256": "6360863f8be19ec45902b9282e7ca7fe44efdf084eaab3834a03b27f1aa531ff"
+    },
+    {
+      "path": "whochat/storage/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/storage/customer_profiles.py",
+      "sha256": "df64b9073cc72fd80c2c3538718a117ad39110dee75e1d0840f3aa8ddffe919b"
+    },
+    {
+      "path": "whochat/storage/database.py",
+      "sha256": "63a7402c83b6a0f6e3bf95c9a7c1399204534011b43a354df16bb4fb2e7727a5"
+    },
+    {
+      "path": "whochat/storage/historical.py",
+      "sha256": "21e1861ff94f87b54717a30f93f68b146dda31f407f3f90af1abddef468995c0"
+    },
+    {
+      "path": "whochat/storage/historical_scheduler.py",
+      "sha256": "84296797eb2b9abbf7b9882f766c95a89f7399390b4b36071d9c793f8a551a9c"
+    },
+    {
+      "path": "whochat/storage/history_migration.py",
+      "sha256": "e9db908cddf1ccc1b8517bed57d235af148adc3f84a472187c60468d234b4b8d"
+    },
+    {
+      "path": "whochat/storage/knowledge_gaps.py",
+      "sha256": "bb4fd167af7dd2aff40a657c66b04fe25b90b1e1e4ac0867ffbcd7bb8d87641a"
+    },
+    {
+      "path": "whochat/storage/memory_jobs.py",
+      "sha256": "0ced29b701d86892f7e33926947e341a355dd462c50c7c22d63e1ee7b45a2cf9"
+    },
+    {
+      "path": "whochat/storage/memory_writer.py",
+      "sha256": "0751c65b4a20b4701e4f84c33cb868e8baaae677f86c8c0099c1a87915badbb4"
+    },
+    {
+      "path": "whochat/storage/migrations.py",
+      "sha256": "be4a4c6a6db6420fe3b310e776b56038fcdc2e8cf176787a40162bcf47008bd0"
+    },
+    {
+      "path": "whochat/storage/product_knowledge.py",
+      "sha256": "5f329e36e223cf60371208cc996f56aac226ccc28cb83bcaecaa4a4b9c4732eb"
+    },
+    {
+      "path": "whochat/storage/repositories.py",
+      "sha256": "01febfc914b7664611fff2e3ed5ad8ba1d3324bb19dfa5f8a8e9c1763bbcf0a2"
+    },
+    {
+      "path": "whochat/ui/__init__.py",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    },
+    {
+      "path": "whochat/ui/calibration_overlay.py",
+      "sha256": "110f32c6246edaa9b1c353756f2533abd65213970cde4db71e5ee399d4bcbc41"
+    },
+    {
+      "path": "whochat/ui/floating_widget.py",
+      "sha256": "a6cacf44f4e1b4eae086a6488f70305feb2c5643594c30803df23bda95d91bff"
+    },
+    {
+      "path": "whochat/ui/frozen_screenshot.py",
+      "sha256": "5c3b0385bcc3019715b7f8cfaed8c34065ded128df5b400fae6ce146806dea98"
+    },
+    {
+      "path": "whochat/ui/main_window.py",
+      "sha256": "62a4ab10dab579f9d0bba1c91e35644495ad590fb958859ff4d8d1c2d67a5664"
+    },
+    {
+      "path": "whochat/ui/screenshot_selection.py",
+      "sha256": "71499e025bc575864f3bf7238f0e4956d1c97028e74dd11b438b2c420b70556c"
+    },
+    {
+      "path": "whochat/ui/theme.py",
+      "sha256": "f665ed75196eccc8f5b8813a41945cefbb8fd005d3b93502b87515b8135e61cf"
+    },
+    {
+      "path": "whochat/ui/writing_feedback.py",
+      "sha256": "2a6fb7e2a1be0633c3b7c896cdd8002335467c263db46746cc8af43bd94f761e"
+    },
+    {
+      "path": "whochat/vision/bubbles.py",
+      "sha256": "03f5283120eedf53e0427a20d1a274756962838bcd0ffa59df3740fececcfd6b"
+    },
+    {
+      "path": "whochat/vision/current_window_structure.py",
+      "sha256": "e833bbc2fb404c9f2d4bae084f40c8c004e1418229320d6c11e320e56e9ae2f9"
+    },
+    {
+      "path": "whochat/vision/layout_refine.py",
+      "sha256": "a25d85ebe7e8d2b33ddcaa149bc506097a87d23a66dde39f3961b82852910f1a"
+    },
+    {
+      "path": "whochat/vision/manual_activation_structure.py",
+      "sha256": "676ec2c61e2048617dcac517a4e5a31f364b7469768a0c31bea3dd64b7aab826"
+    },
+    {
+      "path": "whochat/vision/visual.py",
+      "sha256": "22de73b57932ff4dae61d861d1a96635f9012df1e412aa80a30a4f352293326a"
+    }
+  ],
+  "business_source_version": "4f9a9541942dd664fdb9da7f7d7ac3e4fe7a2dd93eb983ec64dd9a56c55c7a5f",
+  "validation": {
+    "python_syntax_files": 126,
+    "local_imports_complete": true,
+    "application_module_import": true,
+    "business_logic_unchanged": true,
+    "new_computer_tested": false
+  }
+}

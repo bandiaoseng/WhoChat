@@ -1,20 +1,37 @@
-.env
-.env.*
-!.env.example
-*.db
-*.db-*
-*.sqlite*
-*.log
-secrets.json
-credentials.json
-.whochat-data/
-data/
-backups/
-work/
-node_modules/
-.venv*/
-__pycache__/
-dist/
-build/
-*.exe
-*.zip
+# Only reviewed source files are eligible.
+*
+!*/
+!.gitignore
+!README.md
+!SOURCE_SNAPSHOT.json
+!UPLOAD_POLICY.md
+!/whochat/**/*.py
+!/pyproject.toml
+!/requirements.txt
+# Always exclude personal data and credentials.
+
+**/__pycache__/
+**/node_modules/
+**/.venv*/
+**/.whochat-data/
+**/data/
+**/browser/
+**/Partitions/
+**/logs/
+**/backups/
+**/screenshots/
+**/.env
+**/.env.*
+**/secrets.json
+**/credentials.json
+**/*.db
+**/*.db-*
+**/*.sqlite*
+**/*.pem
+**/*.key
+**/*.pfx
+**/*.p12
+**/Cookies*
+**/Login Data*
+**/Local State
+**/*.log

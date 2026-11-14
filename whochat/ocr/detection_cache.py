@@ -1,0 +1,176 @@
+"""Reuse deterministic text geometry, never images, text or identity evidence.
+
+RapidOCR still crops the current image and runs classification/recognition on
+every call. An exact input digest and all detector parameters must match. This
+adapter is optional: unknown implementations continue through the detector.
+"""
+from __future__ import annotations
+
+from collections import OrderedDict
+from copy import deepcopy
+import hashlib
+import importlib.metadata
+import math
+from pathlib import Path
+from threading import RLock
+import time
+
+
+_RAPID_SOURCE_HASHES = {
+    "main.py": "c2ae17098dde838ac3d2933eec5b218d5c4404ded9fe5d32df7c24fd0e54aa39",
+    "ch_ppocr_det/main.py": "a56c0f51fd6a8c03a5abf2f0a5843b382b8f3257d1bfacf8d5ac6305d5e63024",
+    "ch_ppocr_det/utils.py": "01d25a0b1bbdcdd4aba70a23ae96714c5408df93b295c43ca194952e279adb9e",
+}
+
+
+def _supported_implementation():
+    # The adapter depends on RapidOCR copying fresh image crops after detection
+    # and mapping detector boxes in place afterwards. Refuse unknown releases.
+    try:
+        import rapidocr
+        if importlib.metadata.version("rapidocr") != "3.9.2":
+            return False
+        root = Path(rapidocr.__file__).resolve().parent
+        return all(hashlib.sha256((root / name).read_bytes()).hexdigest() == digest
+                   for name, digest in _RAPID_SOURCE_HASHES.items())
+    except Exception:
+        return False
+
+
+def attach_detection_cache(engine):
+    """Optional accelerator; failure must leave ordinary OCR available."""
+    try:
+        from rapidocr import RapidOCR
+        from rapidocr.ch_ppocr_det.main import TextDetector
+        if (type(engine) is RapidOCR and type(engine.text_det) is TextDetector
+                and _supported_implementation()):
+            engine.text_det = ExactDetectionCache(engine.text_det)
+    except Exception:
+        pass
+
+
+def prepare_detection(engine, image):
+    """Prime only geometry through the pinned engine's real preprocessing.
+
+    No public parameter-mutating OCR call, classification, recognition or
+    source proof. Later calls must still supply exact matching fresh pixels.
+    """
+    from rapidocr import RapidOCR
+    if type(engine) is not RapidOCR or type(engine.text_det) is not ExactDetectionCache:
+        return False
+    current, operations = engine.preprocess_img(engine.load_img(image))
+    crops, result = engine.detect_and_crop(current, operations)
+    return bool(crops and result.boxes is not None)
+
+
+class ExactDetectionCache:
+    """Two bounded geometry entries, 15-second hard TTL, immutable on read.
+
+    The owning pipeline serializes OCR calls on one executor. The lock also
+    prevents concurrent use of this detector from sharing partially built
+    geometry. The model references are retained only to prevent id reuse.
+    """
+
+    def __init__(self, detector, *, clock=time.monotonic):
+        self.detector = detector
+        self.clock = clock
+        self._entries = OrderedDict()
+        self._model = None
+        self._native_model = None
+        self._lock = RLock()
+        self.hits = 0
+        self.scans = 0
+
+    def __getattr__(self, name):
+        return getattr(self.detector, name)
+
+    def _key(self, image):
+        import numpy as np
+        from onnxruntime import InferenceSession
+        from rapidocr.ch_ppocr_det.main import TextDetector
+        from rapidocr.ch_ppocr_det.utils import DBPostProcess
+        from rapidocr.inference_engine.onnxruntime.main import OrtInferSession
+
+        detector = self.detector
+        if (type(detector) is not TextDetector
+                or set(vars(detector)) != {"limit_side_len", "limit_type", "mean", "std",
+                                          "preprocess_op", "postprocess_op", "session"}
+                or type(detector.postprocess_op) is not DBPostProcess
+                or set(vars(detector.postprocess_op)) != {"thresh", "box_thresh", "max_candidates",
+                    "unclip_ratio", "min_size", "score_mode", "dilation_kernel"}
+                or type(detector.session) is not OrtInferSession
+                or set(vars(detector.session)) != {"session"}
+                or type(detector.session.session) is not InferenceSession):
+            return None
+        model = detector.session.session
+        native_model = getattr(model, "_sess", None)
+        if native_model is None:
+            return None
+        if model is not self._model or native_model is not self._native_model:
+            self._entries.clear()
+            self._model, self._native_model = model, native_model
+        if (type(image) is not np.ndarray or image.dtype != np.uint8 or image.ndim != 3
+                or image.shape[2] != 3 or not image.size or image.nbytes > 32 * 1024 * 1024):
+            return None
+        post = detector.postprocess_op
+        kernel = post.dilation_kernel
+        if kernel is not None and (type(kernel) is not np.ndarray or kernel.nbytes > 4096):
+            return None
+        # preprocess_op is regenerated by TextDetector from these parameters on
+        # every miss. It is an output of detection, not an independent setting.
+        params = (detector.limit_side_len, detector.limit_type, tuple(detector.mean), tuple(detector.std),
+                  post.thresh, post.box_thresh, post.max_candidates, post.unclip_ratio,
+                  post.min_size, post.score_mode,
+                  None if kernel is None else (kernel.shape, kernel.dtype.str, kernel.tobytes()))
+        return (repr(params), image.shape, image.dtype.str, image.strides,
+                hashlib.sha256(image.tobytes()).digest())
+
+    def clear(self):
+        with self._lock:
+            self._entries.clear()
+            self._model = self._native_model = None
+
+    def __call__(self, image):
+        import numpy as np
+        from rapidocr.ch_ppocr_det.utils import TextDetOutput
+
+        with self._lock:
+            started = self.clock()
+            for stored_key, entry in tuple(self._entries.items()):
+                if entry[0] <= started:
+                    self._entries.pop(stored_key, None)
+            try:
+                key = self._key(image)
+            except Exception:
+                key = None
+            if key is None:
+                self._entries.clear()
+            elif key in self._entries:
+                _deadline, boxes, scores = self._entries[key]
+                self._entries.move_to_end(key)
+                self.hits += 1
+                # The image is always from THIS invocation. Never retain it.
+                return TextDetOutput(img=image, boxes=boxes.copy(), scores=deepcopy(scores),
+                                     elapse=max(0, self.clock() - started))
+            self.scans += 1
+            result = self.detector(image)
+            if key is not None and type(result) is TextDetOutput:
+                try:
+                    boxes, scores = result.boxes, result.scores
+                    valid = (type(boxes) is np.ndarray and boxes.ndim == 3
+                        and boxes.shape[1:] == (4, 2) and 0 < len(boxes) <= 512
+                        and boxes.nbytes <= 64 * 1024 and np.isfinite(boxes).all()
+                        and isinstance(scores, (tuple, list, np.ndarray)) and len(scores) == len(boxes)
+                        and all(math.isfinite(float(score)) and 0 <= float(score) <= 1 for score in scores))
+                    if valid:
+                        # Copy BEFORE RapidOCR remaps/filters these arrays.
+                        retained = boxes.copy()
+                        retained.flags.writeable = False
+                        self._entries[key] = (self.clock() + 15.0, retained, deepcopy(scores))
+                        self._entries.move_to_end(key)
+                        while len(self._entries) > 2:
+                            self._entries.popitem(last=False)
+                except Exception:
+                    # Optional caching must not replace a successful OCR result.
+                    self._entries.pop(key, None)
+            return result
