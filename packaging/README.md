@@ -10,6 +10,8 @@
 
 用户数据不能放进 payload。所有测试和缓存须指定到充足空间的磁盘；本次构建和验证全部在 F 盘。首次安装包未签名，不应宣称已经完成干净机器/真实账号业务验收。
 
+WhoChat 的安装版仅使用 QtCore、QtGui、QtWidgets。构建运行时使用 `prepare_runtime.py <工作目录>/python --qt-widgets-only PySide6_Essentials pywin32 psutil mss Pillow rapidocr onnxruntime`，保留 Windows 平台插件、图片插件及中文基础翻译，不打包未使用的 Qt Addons。版本与文件校验记录见 runtime-lock.json；精简后须重新验证界面、OCR 和原生辅助进程。
+
 工具来源：
 - https://github.com/python/cpython （PSF License，包含在 python/LICENSE.txt）
 - https://github.com/NSIS-Dev/nsis （许可包含在 licenses/NSIS.txt）
